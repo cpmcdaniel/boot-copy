@@ -19,7 +19,7 @@
       (let [in-files (->> fileset
                           output-files
                           (by-re matching)
-                          (map (juxt tmppath tmpfile)))]
+                          (map (juxt tmp-path tmp-file)))]
         (doseq [[path in-file] in-files]
           (let [out-file (doto (io/file out-dir path) io/make-parents)]
             (util/info "Copying %s to %s...\n" path out-dir)
