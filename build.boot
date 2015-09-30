@@ -6,7 +6,7 @@
 (require '[adzerk.bootlaces :refer :all]
          '[cpmcdaniel.boot-copy :refer :all])
 
-(def +version+ "1.0")
+(def +version+ "1.1")
 
 (bootlaces! +version+)
 

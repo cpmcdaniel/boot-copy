@@ -13,12 +13,14 @@
 
      $ boot build copy -m '\\.jar$' -o /home/foo/jars"
   [o output-dir PATH str     "The output directory path."
-   m matching REGEX #{regex} "The set of regexes matching paths to backup."]
+   m matching REGEX #{regex} "The set of regexes matching paths to backup."
+   i ignore REGEX #{regex}]
   (let [out-dir (io/file output-dir)]
     (with-pre-wrap fileset
       (let [in-files (->> fileset
                           output-files
                           (by-re matching)
+                          (not-by-re ignore)
                           (map (juxt tmppath tmpfile)))]
         (doseq [[path in-file] in-files]
           (let [out-file (doto (io/file out-dir path) io/make-parents)]

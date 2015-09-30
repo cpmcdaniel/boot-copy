@@ -6,7 +6,7 @@ A simple `copy` task that allows boot builds to copy files from previous tasks i
 
 [](dependency)
 ```clojure
-[cpmcdaniel/boot-copy "1.0"] ;; latest release
+[cpmcdaniel/boot-copy "1.1"] ;; latest release
 ```
 [](/dependency)
 
