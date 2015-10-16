@@ -1,10 +1,12 @@
 (set-env!
  :source-paths #{"src"}
- :dependencies '[[adzerk/bootlaces "0.1.9" :scope "test"]])
+ :dependencies '[[adzerk/bootlaces "0.1.9" :scope "test"]
+                 [allgress/boot-tasks "0.2.2" :scope "test" :exclusions [commons-codec]]])
 
 
 (require '[adzerk.bootlaces :refer :all]
-         '[cpmcdaniel.boot-copy :refer :all])
+         '[cpmcdaniel.boot-copy :refer :all]
+         '[allgress.boot-tasks :refer :all])
 
 (def +version+ "1.1")
 
