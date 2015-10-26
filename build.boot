@@ -1,7 +1,7 @@
 (set-env!
  :source-paths #{"src"}
  :dependencies '[[adzerk/bootlaces "0.1.9" :scope "test"]
-                 [allgress/boot-tasks "0.2.2" :scope "test" :exclusions [commons-codec]]])
+                 [allgress/boot-tasks "0.2.3" :scope "test" :exclusions [commons-codec]]])
 
 
 (require '[adzerk.bootlaces :refer :all]
