@@ -1,4 +1,4 @@
-# boot-copy 
+
 
 [![Clojars Project](http://clojars.org/cpmcdaniel/boot-copy/latest-version.svg)](http://clojars.org/cpmcdaniel/boot-copy)
 
@@ -6,7 +6,7 @@ A simple `copy` task that allows boot builds to copy files from previous tasks i
 
 [](dependency)
 ```clojure
-[cpmcdaniel/boot-copy "1.0"] ;; latest release
+[cpmcdaniel/boot-copy "2.0"] ;; latest release
 ```
 [](/dependency)
 
@@ -31,27 +31,32 @@ may look like the following:
 
 (task-options!
  copy {:output-dir    "/home/foo/backups"
-       :matching       #{#"\.jar$"}})
-       
+       :include       #{#"\.jar$"}
+       :exclude       #{#"\.bak$"}})
+
 (deftask build
    "Build my project"
    []
    (comp (jar) (copy)))
 ```
 
+
 The build can then be executed with `boot build` or:
 
 ```bash
-boot jar copy -m '\.jar$' -o /home/foo/backups
+boot jar copy -i '\.jar$' -o /home/foo/backups
 ```
 
-## Acknowledgements
+TIP: try mixing this with the boot `watch` task to automatically move files when
+sources change, like so:
 
-Thanks to the boot developers and the folks in #hoplon on FreeNode IRC for answering all my annoying questions.
+```bash
+boot watch jar copy -i '\.jar$' -o /home/foo/backups
+```
 
 ## License
 
-Copyright © 2015 Craig McDaniel
+Copyright © 2020 Craig McDaniel
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
